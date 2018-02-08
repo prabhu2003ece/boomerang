@@ -1,0 +1,12 @@
+.idea/
+logs/
+.DS_Store
+build/
+target/
+/tmp/
+.project
+.classpath
+*/.project
+*/.classpath
+*/eclipse-build
+/.settings/
