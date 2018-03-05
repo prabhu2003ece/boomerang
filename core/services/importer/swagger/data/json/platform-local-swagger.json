@@ -1,0 +1,590 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "Platform Services API",
+    "license": {
+      "name": "(C) Illumina Inc, All Rights reserved."
+    }
+  },
+  "host": "platform.us.informatics.illumina.com:8080",
+  "basePath": "/platform-services-manager",
+  "tags": [
+    {
+      "name": "notification-rest-manager",
+      "description": "Notification Rest Manager"
+    },
+    {
+      "name": "session-tracker-rest-manager",
+      "description": "Session Tracker Rest Manager"
+    },
+    {
+      "name": "groups-rest-manager",
+      "description": "Groups Rest Manager"
+    },
+    {
+      "name": "bulk-container-permission-rest-manager",
+      "description": "Bulk Container Permission Rest Manager"
+    },
+    {
+      "name": "api-registry-rest-manager",
+      "description": "API Registry Rest Manager"
+    },
+    {
+      "name": "entitlement-rest-manager",
+      "description": "Entitlement Rest Manager"
+    },
+    {
+      "name": "jwt-rest-manager",
+      "description": "JWT Rest Manager"
+    },
+    {
+      "name": "usage-rest-manager",
+      "description": "Usage Rest Manager"
+    },
+    {
+      "name": "organization-roles-rest-manager",
+      "description": "Organization Roles Rest Manager"
+    },
+    {
+      "name": "swagger-2-rest-manager",
+      "description": "Swagger 2 Rest Manager"
+    },
+    {
+      "name": "dmap-authentication-rest-manager",
+      "description": "Dmap Authentication Rest Manager"
+    },
+    {
+      "name": "permission-rest-manager",
+      "description": "Permission Rest Manager"
+    },
+    {
+      "name": "platform-configuration-rest-manager",
+      "description": "Platform Configuration Rest Manager"
+    },
+    {
+      "name": "container-rest-manager",
+      "description": "Container Rest Manager"
+    },
+    {
+      "name": "notification-rule-rest-manager",
+      "description": "Notification Rule Rest Manager"
+    },
+    {
+      "name": "custom-credentials-rest-manager",
+      "description": "Custom Credentials Rest Manager"
+    },
+    {
+      "name": "api-definition-rest-manager",
+      "description": "API Definition Rest Manager"
+    },
+    {
+      "name": "cluster-service-rest-manager",
+      "description": "Cluster Service Rest Manager"
+    },
+    {
+      "name": "notification-template-rest-manager",
+      "description": "Notification Template Rest Manager"
+    },
+    {
+      "name": "account-rest-manager",
+      "description": "Account Rest Manager"
+    },
+    {
+      "name": "api-model-rest-manager",
+      "description": "API Model Rest Manager"
+    },
+    {
+      "name": "application-management-rest-manager",
+      "description": "Application Management Rest Manager"
+    },
+    {
+      "name": "application-messages-rest-manager",
+      "description": "Application Messages Rest Manager"
+    },
+    {
+      "name": "discovery-rest-manager",
+      "description": "Discovery Rest Manager"
+    },
+    {
+      "name": "container-level-permission-rest-manager",
+      "description": "Container Level Permission Rest Manager"
+    },
+    {
+      "name": "organizations-rest-manager",
+      "description": "Organizations Rest Manager"
+    },
+    {
+      "name": "users-rest-manager",
+      "description": "Users Rest Manager"
+    },
+    {
+      "name": "countries-rest-manager",
+      "description": "Countries Rest Manager"
+    },
+    {
+      "name": "domain-rest-manager",
+      "description": "Domain Rest Manager"
+    },
+    {
+      "name": "user-permissions-rest-manager",
+      "description": "User Permissions Rest Manager"
+    },
+    {
+      "name": "o-auth-rest-manager",
+      "description": "O Auth Rest Manager"
+    },
+    {
+      "name": "audit-log-rest-manager",
+      "description": "Audit Log Rest Manager"
+    },
+    {
+      "name": "audit-report-rest-manager",
+      "description": "Audit Report Rest Manager"
+    },
+    {
+      "name": "impersonation-rest-manager",
+      "description": "Impersonation Rest Manager"
+    },
+    {
+      "name": "rest-manager",
+      "description": "Rest Manager"
+    },
+    {
+      "name": "consumable-entity-rest-manager",
+      "description": "Consumable Entity Rest Manager"
+    },
+    {
+      "name": "o-auth-child-apps-rest-manager",
+      "description": "O Auth Child Apps Rest Manager"
+    },
+    {
+      "name": "organization-util-rest-manager",
+      "description": "Organization Util Rest Manager"
+    },
+    {
+      "name": "roles-rest-manager",
+      "description": "Roles Rest Manager"
+    }
+  ],
+  "paths": {
+    
+    "/Session/": {
+      "get": {
+        "tags": [
+          "o-auth-rest-manager"
+        ],
+        "summary": "Get the session details for the pGuid",
+        "description": "Get the current user session details. Application Bearer token (aka: ABT) has access to this api.",
+        "operationId": "searchUsingGET_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pGuid",
+            "in": "query",
+            "description": "pGuid",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "o-auth-rest-manager"
+        ],
+        "summary": "Login: Perform authentication (Grant type: Password by default)",
+        "description": "User authentication through platform. Current grant_types supported (password). User name & password should be sent in the header in the following format Authorization: Basic Base64ENCODED(username:password).",
+        "operationId": "authenticateUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestObject",
+            "description": "requestObject",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "grant_type",
+            "in": "header",
+            "description": "grant_type",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/Session/ProxySession/{pSessionGuid}": {
+      "get": {
+        "tags": [
+          "o-auth-rest-manager"
+        ],
+        "summary": "Get sessionGuid ",
+        "description": "Get the session details based on sessionGuid distributed during validating the token. Authorization header: Client credentails bearer token",
+        "operationId": "getProxySessionUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pSessionGuid",
+            "in": "path",
+            "description": "pSessionGuid",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/Session/v2/{access_token}": {
+      "get": {
+        "tags": [
+          "o-auth-rest-manager"
+        ],
+        "summary": "Get the session details for the access_token",
+        "description": "Get the current user session information by passing authorization header in the following format. Example: Authorization: Basic BASE64ENCODED(clientId:clientSecret). If you are not passing domain param, it will default to accounts domain",
+        "operationId": "validateTokenV2UsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "access_token",
+            "in": "path",
+            "description": "access_token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "domain",
+            "in": "header",
+            "description": "domain",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "clientId",
+            "in": "query",
+            "description": "clientId",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/Session/{access_token}": {
+      "get": {
+        "tags": [
+          "o-auth-rest-manager"
+        ],
+        "summary": "Get the session details for the access_token",
+        "description": "Get the current user session information by passing authorization header in the following format. Example: Authorization: Basic BASE64ENCODED(clientId:clientSecret). If you are not passing domain param, it will default to accounts domain",
+        "operationId": "validateTokenUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "access_token",
+            "in": "path",
+            "description": "access_token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "domain",
+            "in": "header",
+            "description": "domain",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "o-auth-rest-manager"
+        ],
+        "summary": "Invalidate Token",
+        "description": "Invalidates the session by passing authorization header in the following format. Example: Authorization: Basic BASE64ENCODED(clientId:clientSecret).",
+        "operationId": "deleteUsingDELETE_6",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "access_token",
+            "in": "path",
+            "description": "access_token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/SessionTracker/": {
+      "put": {
+        "tags": [
+          "session-tracker-rest-manager"
+        ],
+        "summary": "Track User session",
+        "description": "Tracks User Session. Authorization: UBT(User Bearer token)",
+        "operationId": "trackSessionUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "clientId",
+            "in": "query",
+            "description": "clientId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SessionTracker/IsIdle": {
+      "get": {
+        "tags": [
+          "session-tracker-rest-manager"
+        ],
+        "summary": "Check idle timeout",
+        "description": "Check if the current user session has been idle timeout or not. Authorization: UBT(User Bearer token)",
+        "operationId": "isIdleUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  }
+}
