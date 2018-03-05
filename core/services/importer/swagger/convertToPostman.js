@@ -26,8 +26,7 @@ const rl = readline.createInterface({
 	  output: process.stdout
 	});
 
-//rl.question('Please enter to be converted Swagger json file in importer/data/json ', (answer) => {
-	var answer="platform-local-swagger.json";
+rl.question('Please enter to be converted Swagger json file in importer/data/json ', (answer) => {
 	  console.log(`Converting: ${answer}  to postman.json`);
 
 	  rl.close();
@@ -71,5 +70,5 @@ const rl = readline.createInterface({
 		    }
 	  }
 
-//});
+});
     
