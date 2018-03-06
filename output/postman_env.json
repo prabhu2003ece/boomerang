@@ -1,0 +1,40 @@
+{
+    "id": "685825e6-1261-04aa-3cb6-04c1259b0977",
+    "name": "Swagger2 Environment",
+    "values": [
+        {
+            "enabled": true,
+            "key": "scheme",
+            "value": "https",
+            "type": "text"
+        },
+        {
+            "enabled": true,
+            "key": "port",
+            "value": "443",
+            "type": "text"
+        },
+        {
+            "enabled": true,
+            "key": "host",
+            "value": "platform.use1.informatics.testing-domain.illumina.com",
+            "type": "text"
+        },
+        {
+            "key": "Authorization",
+            "value": "Bearer cGxhdGZvcm0sNzZmZjYyOWQtZjE5Yi0zNjViLTllMTEtMDlmYmE1YzJlMjc5",
+            "type": "text",
+            "enabled": true
+        },
+        {
+            "key": "clientId",
+            "value": "ps-home",
+            "type": "text",
+            "enabled": true
+        }
+    ],
+    "timestamp": 1509563973925,
+    "_postman_variable_scope": "environment",
+    "_postman_exported_at": "2017-11-03T23:56:14.998Z",
+    "_postman_exported_using": "Postman/5.3.2"
+}

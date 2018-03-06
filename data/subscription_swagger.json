@@ -1,0 +1,1258 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "Illumina Subscription Micro service Service APIs",
+    "termsOfService": "https://www.illumina.com/company/legal/terms-and-conditions.html"
+  },
+  "paths": {
+    "/subscription/Account/{id}": {
+      "get": {
+        "tags": [
+          "Account(Platform Internal Object)"
+        ],
+        "summary": "Get account",
+        "description": "subscription",
+        "operationId": "GetAccount",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "ABT Bearer Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "account id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/subscription:Account"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Account(Platform Internal Object)"
+        ],
+        "summary": "Update subscription Account",
+        "description": "subscription",
+        "operationId": "UpdateAccount",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "ABT Bearer Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Account",
+            "description": "Account",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/subscription:Account"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "account id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/subscription:Account"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/subscription:Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Account(Platform Internal Object)"
+        ],
+        "summary": "Deletes the account",
+        "description": "subscription",
+        "operationId": "DeleteAccount",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "ABT Bearer Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Account id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/subscription/Plan": {
+      "get": {
+        "tags": [
+          "SubscriptionPlan(Types)"
+        ],
+        "summary": "Get list of all SubscriptionPlan",
+        "description": "subscription",
+        "operationId": "GetSubscriptionPlans",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "ABT Bearer Token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/subscription:SubscriptionPlan"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "SubscriptionPlan(Types)"
+        ],
+        "summary": "Create a SubscriptionPlan or Type",
+        "description": "subscription",
+        "operationId": "CreateSubscriptionPlan",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "ABT Bearer Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "SubscriptionPlan",
+            "description": "SubscriptionPlan",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/subscription:SubscriptionPlan"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/subscription:SubscriptionPlan"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/subscription:Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/subscription/Organization/{id}": {
+      "get": {
+        "tags": [
+          "Subscription(Org)"
+        ],
+        "summary": "Get subscription - Organization",
+        "description": "subscription",
+        "operationId": "GetOrgSubscription",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "ABT Bearer Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "OrganizationId or workgroup id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/subscription:SubscriptionList"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/subscription:Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Subscription(Org)"
+        ],
+        "summary": "Create subscription for an org or workgroup",
+        "description": "subscription",
+        "operationId": "CreateOrgSubscription",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "ABT Bearer Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Organization / workgroup id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Subscription",
+            "description": "Subscription",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/subscription:Subscription"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/subscription:Subscription"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/subscription:Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Subscription(Org)"
+        ],
+        "summary": "Update subscription plan (Org or workgroup)",
+        "description": "subscription",
+        "operationId": "UpdateOrgSubscription",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "ABT Bearer Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Organization / workgroup id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Subscription",
+            "description": "Subscription",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/subscription:Subscription"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/subscription:Subscription"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/subscription:Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/subscription/Plan/{id}": {
+      "put": {
+        "tags": [
+          "SubscriptionPlan(Types)"
+        ],
+        "summary": "Update a SubscriptionPlan or Type",
+        "description": "subscription",
+        "operationId": "PUT subscriptionPlan",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "ABT Bearer Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Subscription plan id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "SubscriptionPlan",
+            "description": "SubscriptionPlan",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/subscription:SubscriptionPlan"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "SubscriptionPlan(Types)"
+        ],
+        "summary": "Deletes the subscription Plan",
+        "description": "subscription",
+        "operationId": "DeleteSubscriptionPlan",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "ABT Bearer Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Subscription plan id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/subscription/Subscription/{id}": {
+      "delete": {
+        "tags": [
+          "Subscription"
+        ],
+        "summary": "Deletes the subscription",
+        "description": "subscription",
+        "operationId": "DeleteSubscription",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "ABT Bearer Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Subscription id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/subscription/Search": {
+      "get": {
+        "tags": [
+          "Subscription(Search)"
+        ],
+        "summary": "Search subscriptions",
+        "description": "subscription",
+        "operationId": "SearchSubscriptions",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "ABT Bearer Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "type of the account (user or domain or org)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "mapperId",
+            "in": "query",
+            "description": "platform mapperid (Guid corresponds to user pGuid or domainUID or OrgId)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "valueContractNumberSAP",
+            "in": "query",
+            "description": "SAP valueContractNumber number. Provided by CS team.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "soldToPartySAP",
+            "in": "query",
+            "description": "SAP soldToParty number. Provided by CS team.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Active or Inactive or Disabled",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/subscription:AccountList"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/subscription:Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/subscription/User/{pGuid}": {
+      "get": {
+        "tags": [
+          "Subscription(User)"
+        ],
+        "summary": "Get subscription - User",
+        "description": "subscription",
+        "operationId": "GetUserSubscription",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "ABT Bearer Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pGuid",
+            "in": "path",
+            "description": "User pGuid",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/subscription:SubscriptionList"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/subscription:Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Subscription(User)"
+        ],
+        "summary": "Create subscription for an user",
+        "description": "subscription",
+        "operationId": "CreateUserSubscription",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "ABT Bearer Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pGuid",
+            "in": "path",
+            "description": "User pGuid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Subscription",
+            "description": "Subscription",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/subscription:Subscription"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/subscription:Subscription"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/subscription:Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Subscription(User)"
+        ],
+        "summary": "Update subscription for the user",
+        "description": "subscription",
+        "operationId": "UpdateUserSubscription",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "ABT Bearer Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pGuid",
+            "in": "path",
+            "description": "User pGuid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Subscription",
+            "description": "Subscription",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/subscription:Subscription"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/subscription:Subscription"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/subscription:Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/subscription/Domain/{domainUID}": {
+      "get": {
+        "tags": [
+          "Subscription(Domain)"
+        ],
+        "summary": "Get subscription - Domain",
+        "description": "subscription",
+        "operationId": "GetDomainSubscription",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "ABT Bearer Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "domainUID",
+            "in": "path",
+            "description": "Domain domainUID issued by platform",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/subscription:SubscriptionList"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/subscription:Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Subscription(Domain)"
+        ],
+        "summary": "Add subscription to a domain",
+        "description": "subscription",
+        "operationId": "CreateDomainSubscription",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "ABT Bearer Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "domainUID",
+            "in": "path",
+            "description": "domainUID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Subscription",
+            "description": "Subscription",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/subscription:Subscription"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/subscription:Subscription"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/subscription:Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Subscription(Domain)"
+        ],
+        "summary": "Update subscription for the domain",
+        "description": "subscription",
+        "operationId": "UpdateDomainSubscription",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "ABT Bearer Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "domainUID",
+            "in": "path",
+            "description": "domainUID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Subscription",
+            "description": "Subscription",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/subscription:Subscription"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/subscription:Subscription"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/subscription:Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/subscription/Account": {
+      "post": {
+        "tags": [
+          "Account(Platform Internal Object)"
+        ],
+        "summary": "Create subscription Account",
+        "description": "subscription",
+        "operationId": "CreateAccount",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "ABT Bearer Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Account",
+            "description": "Account",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/subscription:Account"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/subscription:Account"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/subscription:Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "subscription:Error": {
+      "properties": {
+        "errorCode": {
+          "type": "string"
+        },
+        "validationErrors": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "object",
+              "properties": {
+              }
+            }
+          }
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "subscription:SubscriptionList": {
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/subscription:Subscription"
+          }
+        }
+      }
+    },
+    "subscription:PagingResponse": {
+      "properties": {
+        "offset": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "totalCount": {
+          "type": "integer"
+        },
+        "sortBy": {
+          "type": "string"
+        },
+        "sortDir": {
+          "type": "string"
+        }
+      }
+    },
+    "subscription:UserSubscriptionList": {
+      "properties": {
+        "user": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/subscription:Subscription"
+          }
+        },
+        "domain": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/subscription:Subscription"
+          }
+        },
+        "organization": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/subscription:Subscription"
+          }
+        }
+      }
+    },
+    "subscription:AccountList": {
+      "properties": {
+        "paging": {
+          "$ref": "#/definitions/subscription:PagingResponse"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/subscription:Account"
+          }
+        }
+      }
+    },
+    "subscription:Subscription": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "subscriptionPlan": {
+          "$ref": "#/definitions/subscription:SubscriptionPlan"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "valueContractNumberSAP": {
+          "type": "string"
+        },
+        "soldToPartySAP": {
+          "type": "string"
+        },
+        "externalBlob": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "disabled",
+            "inactive"
+          ]
+        }
+      }
+    },
+    "subscription:SubscriptionPlan": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "term": {
+          "type": "number"
+        },
+        "termPeriod": {
+          "type": "string",
+          "enum": [
+            "Day",
+            "Week",
+            "Month",
+            "Year"
+          ]
+        },
+        "skuSAP": {
+          "type": "string"
+        }
+      }
+    },
+    "subscription:Account": {
+      "required": [
+        "mapperId",
+        "type"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "user",
+            "domain",
+            "organization"
+          ]
+        },
+        "mapperId": {
+          "type": "string"
+        },
+        "externalBlob": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+    "id": "ecda63c3-43ef-4bb1-ab82-382af3b70447",
+    "name": "Illumina SessionTracker Microservice Service APIs",
+    "order": [],
+    "folders": [
+        {
+            "id": "1fada38f-e734-4cf0-ab7b-ce39eb6b5ae9",
+            "name": "sessionTracker",
+            "description": "Folder for sessionTracker",
+            "order": [
+                "8ce83628-07d5-4309-9f72-5bab27e5a5ce",
+                "090670c0-3e4f-429c-95de-0862b6b37716"
+            ],
+            "collection_name": "Illumina SessionTracker Microservice Service APIs",
+            "collection_id": "ecda63c3-43ef-4bb1-ab82-382af3b70447",
+            "collection": "ecda63c3-43ef-4bb1-ab82-382af3b70447"
+        }
+    ],
+    "timestamp": 1413302258635,
+    "synced": false,
+    "requests": [
+        {
+            "id": "8ce83628-07d5-4309-9f72-5bab27e5a5ce",
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: {{Authorization}}\n",
+            "url": "{{scheme}}://{{host}}:{{port}}/SessionTracker?clientId={{clientId}}",
+            "pathVariables": {},
+            "preRequestScript": "",
+            "method": "PUT",
+            "data": [],
+            "rawModeData": null,
+            "dataMode": "params",
+            "description": "Tracks User Session. Authorization: UBT(User Bearer token)",
+            "descriptionFormat": "html",
+            "time": 1520310374746,
+            "version": 2,
+            "responses": [],
+            "tests": "",
+            "collectionId": "ecda63c3-43ef-4bb1-ab82-382af3b70447",
+            "synced": false,
+            "name": "Track User session"
+        },
+        {
+            "id": "090670c0-3e4f-429c-95de-0862b6b37716",
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: {{Authorization}}\n",
+            "url": "{{scheme}}://{{host}}:{{port}}/IsIdle",
+            "pathVariables": {},
+            "preRequestScript": "",
+            "method": "GET",
+            "data": [],
+            "rawModeData": null,
+            "dataMode": "params",
+            "description": "Check if the current user session has been idle timeout or not. Authorization: UBT(User Bearer token)",
+            "descriptionFormat": "html",
+            "time": 1520310374746,
+            "version": 2,
+            "responses": [],
+            "tests": "",
+            "collectionId": "ecda63c3-43ef-4bb1-ab82-382af3b70447",
+            "synced": false,
+            "name": "Check idle timeout"
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "swaggerconvert",
+  "version": "1.0.0",
+  "description": "Utility Project to convert from Swagger to Postman collection",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "swagger2-postman-generator": "^2.0.9",
+    "newman": "^3.9.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "swagger",
+    "postman"
+  ],
+  "author": "Platform",
+  "license": "ISC"
+}

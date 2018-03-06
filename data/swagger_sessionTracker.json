@@ -1,0 +1,97 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "Illumina SessionTracker Microservice Service APIs",
+    "termsOfService": "https://www.illumina.com/company/legal/terms-and-conditions.html"
+  },
+  "paths": {
+    "/sessionTracker/SessionTracker": {
+      "put": {
+        "tags": [
+          "SessionTracker"
+        ],
+        "summary": "Track User session",
+        "description": "Tracks User Session. Authorization: UBT(User Bearer token)",
+        "operationId": "PUT Session",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "UBT Bearer Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "clientId",
+            "in": "query",
+            "description": "clientId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/sessionTracker/IsIdle": {
+      "get": {
+        "tags": [
+          "SessionTracker"
+        ],
+        "summary": "Check idle timeout",
+        "description": "Check if the current user session has been idle timeout or not. Authorization: UBT(User Bearer token)",
+        "operationId": "Check Session Idle",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "UBT Bearer Token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+  }
+}
